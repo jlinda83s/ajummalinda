@@ -21,6 +21,7 @@
             --cream: #FFF0F3;
             --dark: #2D0A1F;
             --gold: #FFD700;
+            --naver-green: #03C75A;
         }
 
         html {
@@ -131,6 +132,7 @@
             background-clip: text;
             letter-spacing: -1px;
             position: relative;
+            cursor: pointer;
         }
 
         .logo::after {
@@ -162,6 +164,7 @@
             font-size: 0.95rem;
             text-transform: lowercase;
             letter-spacing: 1px;
+            cursor: pointer;
         }
 
         .nav-links a::before {
@@ -280,6 +283,7 @@
             border: 3px solid transparent;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .cta-button::before {
@@ -312,6 +316,48 @@
         .cta-button.secondary:hover {
             background: var(--hot-pink);
             color: white;
+        }
+
+        /* PayPal Button Style */
+        .paypal-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #0070BA, #005EA6);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0, 112, 186, 0.3);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .paypal-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .paypal-button:hover::before {
+            left: 100%;
+        }
+
+        .paypal-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 112, 186, 0.4);
+            border-color: white;
         }
 
         /* Floating Particles */
@@ -390,8 +436,8 @@
 
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -400,7 +446,7 @@
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px);
             border-radius: 30px;
-            padding: 50px 40px;
+            padding: 40px;
             text-align: center;
             border: 2px solid rgba(255, 255, 255, 0.9);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -432,15 +478,15 @@
         }
 
         .social-icon-wrapper {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, var(--soft-pink), var(--blush));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2.5rem;
+            margin: 0 auto 20px;
+            font-size: 2rem;
             transition: all 0.3s;
             box-shadow: 0 10px 30px rgba(255, 0, 110, 0.1);
         }
@@ -451,31 +497,33 @@
         }
 
         .social-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--deep-rose);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-family: 'Playfair Display', serif;
         }
 
-        .social-stats {
-            font-size: 2rem;
-            font-weight: 700;
+        .social-handle {
+            font-size: 0.95rem;
             color: var(--hot-pink);
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-family: 'Space Grotesk', monospace;
         }
 
         .social-card p {
             color: var(--dark);
             opacity: 0.8;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
         .follow-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 35px;
+            padding: 12px 30px;
             background: white;
             color: var(--hot-pink);
             text-decoration: none;
@@ -485,6 +533,8 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            font-size: 0.9rem;
+            cursor: pointer;
         }
 
         .follow-btn:hover {
@@ -611,12 +661,34 @@
             padding: 10px 25px;
             border-radius: 20px;
             transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .item-price .period {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-left: 2px;
+            font-weight: 500;
         }
 
         .wishlist-item:hover .item-price {
             background: var(--hot-pink);
             color: white;
             transform: scale(1.05);
+        }
+
+        .wishlist-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed var(--blush);
+        }
+
+        .wishlist-footer-text {
+            font-size: 1.2rem;
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+            font-style: italic;
         }
 
         /* Footer */
@@ -682,12 +754,92 @@
             transition: all 0.3s;
             display: inline-block;
             margin-bottom: 40px;
+            cursor: pointer;
         }
 
         .email-link:hover {
             color: white;
             border-color: white;
             transform: translateY(-2px);
+        }
+
+        /* Bar Section at Bottom */
+        .bar-section {
+            margin: 50px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .bar-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .bar-section-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .bar-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .bar-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #2D0A1F, #4A1A3B);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(45, 10, 31, 0.4);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .bar-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .bar-button:hover::before {
+            left: 100%;
+        }
+
+        .bar-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(45, 10, 31, 0.5);
+            border-color: white;
+        }
+
+        .naver-button {
+            background: linear-gradient(135deg, var(--naver-green), #02A347);
+            box-shadow: 0 10px 30px rgba(3, 199, 90, 0.4);
+        }
+
+        .naver-button:hover {
+            box-shadow: 0 15px 40px rgba(3, 199, 90, 0.5);
         }
 
         .footer-bottom {
@@ -745,9 +897,10 @@
             .item-number {
                 margin-right: 0;
             }
-            
+
             .item-price {
                 margin-left: 0;
+                font-size: 1.2rem;
             }
 
             .cta-container {
@@ -758,6 +911,31 @@
             .dance-emoji {
                 font-size: 2.5rem;
                 margin: 0 10px;
+            }
+
+            .paypal-button {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+
+            .bar-section {
+                padding: 30px 20px;
+                margin: 30px 0;
+            }
+
+            .bar-section-title {
+                font-size: 1.5rem;
+            }
+
+            .bar-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .bar-button {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
             }
         }
 
@@ -824,12 +1002,12 @@
 
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="logo">ajummalinda</div>
+        <div class="logo" onclick="window.scrollTo(0,0)">ajummalinda</div>
         <ul class="nav-links">
-            <li><a href="#home">home</a></li>
-            <li><a href="#socials">socials</a></li>
-            <li><a href="#wishlist">wishlist</a></li>
-            <li><a href="#contact">contact</a></li>
+            <li><a onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'})">home</a></li>
+            <li><a onclick="document.getElementById('socials').scrollIntoView({behavior: 'smooth'})">socials</a></li>
+            <li><a onclick="document.getElementById('wishlist').scrollIntoView({behavior: 'smooth'})">wishlist</a></li>
+            <li><a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">contact</a></li>
         </ul>
     </nav>
 
@@ -843,14 +1021,14 @@
             <p class="korean-text">아줌마린다 • 19 years married • mama of 2 • your korean mom here</p>
             
             <div class="cta-container">
-                <a href="#socials" class="cta-button">
+                <button class="cta-button" onclick="document.getElementById('socials').scrollIntoView({behavior: 'smooth'})">
                     <span>join the glow up</span>
                     <span>💖</span>
-                </a>
-                <a href="#wishlist" class="cta-button secondary">
-                    <span>view wishlist</span>
+                </button>
+                <button class="cta-button secondary" onclick="document.getElementById('wishlist').scrollIntoView({behavior: 'smooth'})">
+                    <span>support my dream</span>
                     <span>🎁</span>
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -863,37 +1041,88 @@
         </div>
         
         <div class="social-grid">
+            <!-- Main TikTok -->
             <div class="social-card reveal">
                 <div class="social-icon-wrapper">🎵</div>
                 <h3>tiktok</h3>
-                <div class="social-stats">69.5K</div>
-                <p>self-taught dance videos & self-care tips<br>534.4K likes • viral korean mom content</p>
-                <a href="https://www.tiktok.com/@ajummalinda" target="_blank" class="follow-btn">
+                <div class="social-handle">@ajummalinda</div>
+                <p>self-taught dance videos & self-care tips<br>viral korean mom content</p>
+                <button class="follow-btn" onclick="window.open('https://www.tiktok.com/@ajummalinda', '_blank')">
                     <span>follow</span>
                     <span>→</span>
-                </a>
+                </button>
             </div>
             
+            <!-- Backup TikTok -->
+            <div class="social-card reveal">
+                <div class="social-icon-wrapper">🎵</div>
+                <h3>tiktok backup</h3>
+                <div class="social-handle">@ajummalinda2.0</div>
+                <p>backup account for extra dance content<br>more fun & behind the scenes</p>
+                <button class="follow-btn" onclick="window.open('https://www.tiktok.com/@ajummalinda2.0_?_r=1&_t=ZN-93rZNwPF7ag', '_blank')">
+                    <span>follow</span>
+                    <span>→</span>
+                </button>
+            </div>
+            
+            <!-- Instagram -->
             <div class="social-card reveal">
                 <div class="social-icon-wrapper">📸</div>
                 <h3>instagram</h3>
-                <div class="social-stats">11.7K</div>
+                <div class="social-handle">@ajummalinda</div>
                 <p>skin glow from within<br>daily moments & behind the scenes</p>
-                <a href="https://www.instagram.com/ajummalinda" target="_blank" class="follow-btn">
+                <button class="follow-btn" onclick="window.open('https://www.instagram.com/ajummalinda', '_blank')">
                     <span>follow</span>
                     <span>→</span>
-                </a>
+                </button>
             </div>
             
+            <!-- YouTube -->
             <div class="social-card reveal">
                 <div class="social-icon-wrapper">📺</div>
                 <h3>youtube</h3>
-                <div class="social-stats">2.1K</div>
+                <div class="social-handle">@ajummalinda2131</div>
                 <p>long-form content & tutorials<br>korean mom lifestyle vlogs</p>
-                <a href="#" target="_blank" class="follow-btn">
+                <button class="follow-btn" onclick="window.open('https://youtube.com/@ajummalinda2131?si=QEW8OjFRv5CzO5Hm', '_blank')">
                     <span>subscribe</span>
                     <span>→</span>
-                </a>
+                </button>
+            </div>
+            
+            <!-- X/Twitter -->
+            <div class="social-card reveal">
+                <div class="social-icon-wrapper">🐦</div>
+                <h3>x / twitter</h3>
+                <div class="social-handle">@AjummaLinda</div>
+                <p>quick thoughts & updates<br>connect with the community</p>
+                <button class="follow-btn" onclick="window.open('https://x.com/AjummaLinda', '_blank')">
+                    <span>follow</span>
+                    <span>→</span>
+                </button>
+            </div>
+            
+            <!-- Facebook -->
+            <div class="social-card reveal">
+                <div class="social-icon-wrapper">📘</div>
+                <h3>facebook</h3>
+                <div class="social-handle">AJUMMALINDA</div>
+                <p>community updates & longer posts<br>connect with fellow moms</p>
+                <button class="follow-btn" onclick="window.open('https://www.facebook.com/share/1CAXFFNomz/', '_blank')">
+                    <span>follow</span>
+                    <span>→</span>
+                </button>
+            </div>
+            
+            <!-- Tumblr -->
+            <div class="social-card reveal">
+                <div class="social-icon-wrapper">📝</div>
+                <h3>tumblr</h3>
+                <div class="social-handle">@ajummalinda</div>
+                <p>favourites & inspiration<br>aesthetic moodboards & more</p>
+                <button class="follow-btn" onclick="window.open('https://www.tumblr.com/ajummalinda', '_blank')">
+                    <span>follow</span>
+                    <span>→</span>
+                </button>
             </div>
         </div>
     </section>
@@ -902,53 +1131,87 @@
     <section class="wishlist" id="wishlist">
         <div class="section-header reveal">
             <div class="section-label">support</div>
-            <h2 class="section-title">linda's wishlist</h2>
+            <h2 class="section-title">linda's dream fund</h2>
         </div>
         
         <div class="wishlist-container reveal">
+            <!-- Korean Dance -->
             <div class="wishlist-item">
                 <div class="item-number">1</div>
                 <div class="item-content">
-                    <h4>professional ring light setup</h4>
-                    <p>18" LED ring light with stand for perfect dance video lighting & skincare tutorials</p>
+                    <h4>Korean Dance Lessons</h4>
+                    <p>Traditional & modern K-pop dance training • Twice a week • One Year Plan</p>
                 </div>
-                <div class="item-price">$85</div>
+                <div class="item-price">$200<span class="period">/mo</span></div>
             </div>
             
+            <!-- Heels Dance -->
             <div class="wishlist-item">
                 <div class="item-number">2</div>
                 <div class="item-content">
-                    <h4>k-beauty skincare collection</h4>
-                    <p>sulwhasoo & laneige anti-aging sets for that glass skin glow</p>
+                    <h4>Heels Dance Beginners</h4>
+                    <p>Beginner heels technique & choreography • Once a week • Two Year Plan</p>
                 </div>
-                <div class="item-price">$120</div>
+                <div class="item-price">$200<span class="period">/mo</span></div>
             </div>
             
+            <!-- Ballet -->
             <div class="wishlist-item">
                 <div class="item-number">3</div>
                 <div class="item-content">
-                    <h4>dance studio mirror</h4>
-                    <p>full-length portable mirror for home practice & form checking</p>
+                    <h4>Ballet Lessons</h4>
+                    <p>Classical ballet foundation & posture • Once a week • One Year Plan</p>
                 </div>
-                <div class="item-price">$200</div>
+                <div class="item-price">$200<span class="period">/mo</span></div>
             </div>
             
+            <!-- Pilates -->
             <div class="wishlist-item">
                 <div class="item-number">4</div>
                 <div class="item-content">
-                    <h4>wireless lavalier microphone</h4>
-                    <p>professional audio for clear dance tutorials & vlog content</p>
+                    <h4>Pilates Training</h4>
+                    <p>Core strength & flexibility for dancers • Once a week • One Year Plan</p>
                 </div>
-                <div class="item-price">$60</div>
+                <div class="item-price">$300<span class="period">/mo</span></div>
             </div>
             
+            <!-- Body Massage -->
             <div class="wishlist-item">
                 <div class="item-number">5</div>
                 <div class="item-content">
-                    <h4>matcha ceremony set</h4>
-                    <p>traditional korean tea ceremony set for self-care sundays</p>
+                    <h4>Body Massage Package</h4>
+                    <p>Recovery & relaxation therapy • 10 Sessions • Essential for dancer wellness</p>
                 </div>
-                <div class="item-price">$75</div>
+                <div class="item-price">$2,000</div>
+            </div>
+            
+            <!-- Laser Hair Removal -->
+            <div class="wishlist-item">
+                <div class="item-number">6</div>
+                <div class="item-content">
+                    <h4>Laser Hair Removal</h4>
+                    <p>Professional treatment • 10-15 Sessions • Mandatory for heels dance performances</p>
+                </div>
+                <div class="item-price">$2,000</div>
+            </div>
+            
+            <!-- Hair Loss Treatment -->
+            <div class="wishlist-item">
+                <div class="item-number">7</div>
+                <div class="item-content">
+                    <h4>Hair Loss Treatment</h4>
+                    <p>Professional scalp & hair restoration therapy • Monthly treatment plan</p>
+                </div>
+                <div class="item-price">$1,000<span class="period">/mo</span></div>
+            </div>
+            
+            <!-- Bottom PayPal Button -->
+            <div class="wishlist-footer">
+                <p class="wishlist-footer-text">Every contribution brings me closer to my dance dreams 💃✨</p>
+                <button class="paypal-button" onclick="window.open('https://www.paypal.me/LindaAnnCho', '_blank')">
+                    <span>💙</span>
+                    <span>Support via PayPal</span>
+                </button>
             </div>
         </div>
     </section>
@@ -963,6 +1226,22 @@
             <p class="footer-text">let's glow together</p>
             <p class="footer-subtext">business inquiries & collaborations</p>
             <a href="mailto:ajummalinda@gmail.com" class="email-link">ajummalinda@gmail.com</a>
+            
+            <!-- Visit My Bar Section -->
+            <div class="bar-section reveal">
+                <h3 class="bar-section-title">🍸 Visit My Bar</h3>
+                <p class="bar-section-subtitle">SoHaengSung • Seoul Seodaemun-gu Daehyeon-dong 110-2</p>
+                <div class="bar-buttons">
+                    <button class="bar-button" onclick="window.open('https://sites.google.com/view/asteriod2/home', '_blank')">
+                        <span>🌐</span>
+                        <span>Visit Bar Website</span>
+                    </button>
+                    <button class="bar-button naver-button" onclick="window.open('https://naver.me/51u6N2kU', '_blank')">
+                        <span>📍</span>
+                        <span>NAVER Maps</span>
+                    </button>
+                </div>
+            </div>
             
             <div class="footer-bottom">
                 <p>made with 💖 for ajummalinda • © 2026</p>
@@ -1022,16 +1301,6 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
 
         // Click sparkle effect
         document.addEventListener('click', (e) => {
